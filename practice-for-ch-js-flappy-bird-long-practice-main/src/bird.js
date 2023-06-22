@@ -1,5 +1,3 @@
-
-
 const CONSTANTS = {
     GRAVITY:  0.8,
     FLAP_SPEED:  -8,
@@ -7,9 +5,6 @@ const CONSTANTS = {
     BIRD_WIDTH:  40,
     BIRD_HEIGHT:  30
 };
-
-const img = new Image();
-img.src = './bird.png';
 
 
 export default class Bird {
@@ -26,6 +21,18 @@ export default class Bird {
     }
 
     drawBird(ctx) {
+        const img = new Image();
+        img.onload = () => {
+            ctx.drawImage(img, this.x, this.y);
+            // ctx.beginPath();
+            // ctx.moveTo(30, 96);
+            // ctx.lineTo(70, 66);
+            // ctx.lineTo(103, 76);
+            // ctx.lineTo(170, 15);
+            // ctx.stroke();
+        };
+        img.src = 'https://miro.medium.com/v2/resize:fit:2400/0*yosFB97bra3kPD0O.';
+
         ctx.fillStyle = "yellow";
         ctx.fillRect(this.x, this.y, 40, 30);
     }
